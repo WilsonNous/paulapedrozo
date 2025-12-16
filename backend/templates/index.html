@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Paula Pedroso | Psicanálise Clínica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Atendimento em psicanálise clínica com acolhimento, ética e cuidado emocional. Atendimento online." />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+    <header class="hero">
+        <h1>Paula Pedroso</h1>
+        <p>Psicanálise Clínica</p>
+    </header>
+
+    <main class="container">
+
+        <section class="intro">
+            <h2>Cuidar da mente também é um ato de coragem</h2>
+            <p>
+                Um espaço de escuta, acolhimento e respeito à sua história.
+                Atendimento online, com ética, sigilo e cuidado.
+            </p>
+
+            <a
+              class="btn-whatsapp"
+              href="https://wa.me/5599999999999"
+              target="_blank">
+              Conversar pelo WhatsApp
+            </a>
+        </section>
+
+        <section class="formulario">
+            <h2>Entre em contato</h2>
+
+            <form method="POST" action="/contato">
+                <input type="text" name="nome" placeholder="Seu nome" required>
+                <input type="email" name="email" placeholder="Seu e-mail" required>
+                <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
+                <textarea name="mensagem" placeholder="Como posso te ajudar?"></textarea>
+
+                <button type="submit">Enviar mensagem</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© Projeto Empreendedores • MVP demonstrativo</p>
+    </footer>
+
+</body>
+</html>
