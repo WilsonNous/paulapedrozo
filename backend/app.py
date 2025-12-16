@@ -1,10 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask
+import os
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def home():
-    return 'Hello, World!'
+    return "Projeto Empreendedores — MVP Paula Pedroso ativo 🚀"
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
