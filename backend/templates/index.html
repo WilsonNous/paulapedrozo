@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Paula Pedrozo | Psicanálise Clínica</title>
+
+  <title>Paula Pedrozo | Psicanálise Clínica • Atendimento Online</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,6 +12,13 @@
 
   <meta name="author" content="Nous Tecnologia" />
 
+  <!-- ================= FAVICON ================= -->
+  <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+
+  <!-- ================= CSS ================= -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
@@ -49,7 +57,7 @@
       </a>
     </section>
 
-    <!-- OFERTAS / SERVIÇOS -->
+    <!-- COMO FUNCIONA -->
     <section class="formulario" style="margin-bottom: 25px;">
       <h2>Como funciona</h2>
 
@@ -61,7 +69,7 @@
       <ul style="padding-left: 18px; margin-bottom: 10px;">
         <li><strong>Atendimento online</strong> (sessões individuais)</li>
         <li><strong>Agenda organizada</strong>: até <strong>5 clientes por dia</strong>, <strong>4 dias por semana</strong></li>
-        <li><strong>Pacotes de 6 sessões</strong>: pensado para continuidade e evolução do processo</li>
+        <li><strong>Pacotes de 6 sessões</strong>: pensados para continuidade e evolução do processo</li>
       </ul>
 
       <p style="margin-top: 12px; font-size: 0.95rem; opacity: 0.9;">
@@ -75,11 +83,13 @@
 
       <p style="margin-bottom: 14px;">
         Está em desenvolvimento um projeto especial de <strong>mentoria para mães</strong>,
-        com encontros, orientações e conteúdos práticos para apoiar o cuidado emocional, a rotina e a vida familiar.
+        com encontros, orientações e conteúdos práticos para apoiar o cuidado emocional,
+        a rotina e a vida familiar.
       </p>
 
       <p style="margin-bottom: 0;">
-        Se você deseja ser avisada quando a mentoria abrir, marque esse interesse no formulário abaixo.
+        Se você deseja ser avisada quando a mentoria abrir,
+        marque esse interesse no formulário abaixo.
       </p>
     </section>
 
@@ -93,7 +103,7 @@
       </p>
     </section>
 
-    <!-- CONTATO (LEAD) -->
+    <!-- CONTATO -->
     <section class="formulario">
       <h2>Entre em contato</h2>
 
@@ -105,7 +115,8 @@
 
         <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
 
-        <select name="interesse" style="width:100%; padding:14px; margin-bottom:18px; border-radius:6px; border:1px solid var(--cinza-borda); font-family: inherit;">
+        <select name="interesse"
+                style="width:100%; padding:14px; margin-bottom:18px; border-radius:6px; border:1px solid var(--cinza-borda); font-family: inherit;">
           <option value="" selected>Seu interesse principal</option>
           <option value="atendimento">Atendimento online (sessões individuais)</option>
           <option value="pacote_6">Pacote de 6 sessões</option>
@@ -113,13 +124,15 @@
           <option value="devocional_livro">Devocional / Livro (quero novidades)</option>
         </select>
 
-        <textarea name="mensagem" placeholder="Como posso te ajudar? (conte um pouco do que você busca)"></textarea>
+        <textarea name="mensagem"
+                  placeholder="Como posso te ajudar? (conte um pouco do que você busca)"></textarea>
 
         <button type="submit">Enviar mensagem</button>
       </form>
 
       <p style="margin-top: 12px; font-size: 0.9rem; opacity: 0.85; text-align:center;">
-        Ao enviar, você concorda em ser contatada para retorno. Seus dados serão tratados com cuidado e sigilo.
+        Ao enviar, você concorda em ser contatada para retorno.
+        Seus dados serão tratados com cuidado e sigilo.
       </p>
     </section>
 
