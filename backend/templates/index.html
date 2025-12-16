@@ -2,45 +2,64 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Paula Pedroso | Psicanálise Clínica</title>
+    <title>Paula Pedrozo | Psicanálise Clínica</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Atendimento em psicanálise clínica com acolhimento, ética e cuidado emocional. Atendimento online." />
+    <meta name="description"
+          content="Atendimento em psicanálise clínica com acolhimento, ética e cuidado emocional. Atendimento online." />
+
+    <meta name="author" content="Nous Tecnologia" />
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
 
+    <!-- ================= HEADER ================= -->
     <header class="hero">
-        <h1>Paula Pedroso</h1>
+        <img
+            src="{{ url_for('static', filename='images/logo-paula-pedrozo.png') }}"
+            alt="Paula Pedrozo - Terapeuta"
+            class="logo"
+        />
+
+        <h1>Paula Pedrozo</h1>
         <p>Psicanálise Clínica</p>
     </header>
 
+    <!-- ================= CONTEÚDO ================= -->
     <main class="container">
 
+        <!-- INTRO -->
         <section class="intro">
             <h2>Cuidar da mente também é um ato de coragem</h2>
+
             <p>
                 Um espaço de escuta, acolhimento e respeito à sua história.
                 Atendimento online, com ética, sigilo e cuidado.
             </p>
 
             <a
-              class="btn-whatsapp"
-              href="https://wa.me/5599999999999"
-              target="_blank">
-              Conversar pelo WhatsApp
+                class="btn-whatsapp"
+                href="https://wa.me/5599999999999"
+                target="_blank"
+                rel="noopener">
+                Conversar pelo WhatsApp
             </a>
         </section>
 
+        <!-- FORMULÁRIO -->
         <section class="formulario">
             <h2>Entre em contato</h2>
 
             <form method="POST" action="/contato">
                 <input type="text" name="nome" placeholder="Seu nome" required>
+
                 <input type="email" name="email" placeholder="Seu e-mail" required>
+
                 <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
+
                 <textarea name="mensagem" placeholder="Como posso te ajudar?"></textarea>
 
                 <button type="submit">Enviar mensagem</button>
@@ -49,8 +68,12 @@
 
     </main>
 
+    <!-- ================= FOOTER ================= -->
     <footer>
-        <p>© Projeto Empreendedores • MVP demonstrativo</p>
+        <p>
+            © 2025 • MVP demonstrativo<br>
+            Desenvolvido por <strong>Nous Tecnologia</strong> • Projeto Empreendedores
+        </p>
     </footer>
 
 </body>
