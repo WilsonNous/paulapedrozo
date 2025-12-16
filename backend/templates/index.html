@@ -1,150 +1,43 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
+{% extends "base.html" %}
 
-  <title>Paula Pedrozo | Psicanálise Clínica • Atendimento Online</title>
+{% block title %}
+Paula Pedrozo | Psicanálise Clínica • Atendimento Online
+{% endblock %}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block content %}
 
-  <meta name="description"
-        content="Atendimento em psicanálise clínica com acolhimento, ética e cuidado emocional. Atendimento online. Mentoria para mães e projetos autorais." />
+<!-- INTRO -->
+<section class="intro">
+  <h2>Cuidar da mente também é um ato de coragem</h2>
 
-  <meta name="author" content="Nous Tecnologia" />
+  <p>
+    Um espaço de escuta, acolhimento e respeito à sua história.
+    Atendimento online com ética, sigilo e cuidado.
+  </p>
 
-  <!-- ================= FAVICON ================= -->
-  <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
-  <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+  <a
+    class="btn-whatsapp"
+    href="https://wa.me/554899449961?text=Olá,%20Paula!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20online%20e%20a%20disponibilidade%20de%20agenda."
+    target="_blank"
+    rel="noopener">
+    Conversar pelo WhatsApp
+  </a>
+</section>
 
-  <!-- ================= CSS ================= -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
+<!-- COMO FUNCIONA -->
+<section class="formulario" style="margin-bottom: 25px;">
+  <h2>Como funciona</h2>
 
-<body>
+  <p>
+    O atendimento é conduzido com respeito, consistência e responsabilidade,
+    focando em autoconhecimento, amadurecimento emocional e fortalecimento interno.
+  </p>
 
-  <!-- ================= HEADER ================= -->
-  <header class="hero">
-    <img
-      src="{{ url_for('static', filename='images/logo-paula-pedrozo.png') }}"
-      alt="Paula Pedrozo - Psicanálise Clínica"
-      class="logo"
-    />
+  <ul style="padding-left: 18px;">
+    <li><strong>Atendimento online</strong> (sessões individuais)</li>
+    <li><strong>Agenda organizada</strong>: até <strong>5 clientes por dia</strong>, <strong>4 dias por semana</strong></li>
+    <li><strong>Pacotes de 6 sessões</strong>: pensados para continuidade e evolução</li>
+  </ul>
+</section>
 
-    <h1>Paula Pedrozo</h1>
-    <p>Psicanálise Clínica • Atendimento Online</p>
-  </header>
-
-  <!-- ================= CONTEÚDO ================= -->
-  <main class="container">
-
-    <!-- INTRO -->
-    <section class="intro">
-      <h2>Cuidar da mente também é um ato de coragem</h2>
-
-      <p>
-        Um espaço de escuta, acolhimento e respeito à sua história.
-        Atendimento online com ética, sigilo e cuidado.
-      </p>
-
-      <a
-        class="btn-whatsapp"
-        href="https://wa.me/554899449961?text=Olá,%20Paula!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20online%20e%20a%20disponibilidade%20de%20agenda."
-        target="_blank"
-        rel="noopener">
-        Conversar pelo WhatsApp
-      </a>
-    </section>
-
-    <!-- COMO FUNCIONA -->
-    <section class="formulario" style="margin-bottom: 25px;">
-      <h2>Como funciona</h2>
-
-      <p style="margin-bottom: 14px;">
-        O atendimento é conduzido com respeito, consistência e responsabilidade, focando em
-        autoconhecimento, amadurecimento emocional e fortalecimento interno.
-      </p>
-
-      <ul style="padding-left: 18px; margin-bottom: 10px;">
-        <li><strong>Atendimento online</strong> (sessões individuais)</li>
-        <li><strong>Agenda organizada</strong>: até <strong>5 clientes por dia</strong>, <strong>4 dias por semana</strong></li>
-        <li><strong>Pacotes de 6 sessões</strong>: pensados para continuidade e evolução do processo</li>
-      </ul>
-
-      <p style="margin-top: 12px; font-size: 0.95rem; opacity: 0.9;">
-        <em>Observação:</em> horários e valores são combinados no contato inicial, conforme disponibilidade e necessidade.
-      </p>
-    </section>
-
-    <!-- MENTORIA PARA MÃES -->
-    <section class="formulario" style="margin-bottom: 25px;">
-      <h2>Projeto em crescimento: Mentoria para Mães</h2>
-
-      <p style="margin-bottom: 14px;">
-        Está em desenvolvimento um projeto especial de <strong>mentoria para mães</strong>,
-        com encontros, orientações e conteúdos práticos para apoiar o cuidado emocional,
-        a rotina e a vida familiar.
-      </p>
-
-      <p style="margin-bottom: 0;">
-        Se você deseja ser avisada quando a mentoria abrir,
-        marque esse interesse no formulário abaixo.
-      </p>
-    </section>
-
-    <!-- DEVOCIONAL / LIVRO -->
-    <section class="formulario" style="margin-bottom: 35px;">
-      <h2>Devocional / Livro</h2>
-
-      <p style="margin-bottom: 0;">
-        Também está em preparação um <strong>devocional / livro</strong> com mensagens e reflexões.
-        Em breve, será possível adquirir e receber novidades por aqui.
-      </p>
-    </section>
-
-    <!-- CONTATO -->
-    <section class="formulario">
-      <h2>Entre em contato</h2>
-
-      <form method="POST" action="/contato">
-
-        <input type="text" name="nome" placeholder="Seu nome" required>
-
-        <input type="email" name="email" placeholder="Seu e-mail" required>
-
-        <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
-
-        <select name="interesse"
-                style="width:100%; padding:14px; margin-bottom:18px; border-radius:6px; border:1px solid var(--cinza-borda); font-family: inherit;">
-          <option value="" selected>Seu interesse principal</option>
-          <option value="atendimento">Atendimento online (sessões individuais)</option>
-          <option value="pacote_6">Pacote de 6 sessões</option>
-          <option value="mentoria_maes">Mentoria para mães (quero ser avisada)</option>
-          <option value="devocional_livro">Devocional / Livro (quero novidades)</option>
-        </select>
-
-        <textarea name="mensagem"
-                  placeholder="Como posso te ajudar? (conte um pouco do que você busca)"></textarea>
-
-        <button type="submit">Enviar mensagem</button>
-      </form>
-
-      <p style="margin-top: 12px; font-size: 0.9rem; opacity: 0.85; text-align:center;">
-        Ao enviar, você concorda em ser contatada para retorno.
-        Seus dados serão tratados com cuidado e sigilo.
-      </p>
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <p>
-      © 2025 • MVP demonstrativo<br>
-      Desenvolvido por <strong>Nous Tecnologia</strong> • Projeto Empreendedores
-    </p>
-  </footer>
-
-</body>
-</html>
+{% endblock %}
