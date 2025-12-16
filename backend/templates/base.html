@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <title>{% block title %}Paula Pedrozo | Psicanálise Clínica{% endblock %}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Atendimento em psicanálise clínica com acolhimento, ética e cuidado emocional. Atendimento online." />
+
+  <meta name="author" content="Nous Tecnologia" />
+
+  <!-- ================= FAVICON ================= -->
+  <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+
+  <!-- ================= CSS ================= -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+  <!-- ================= HEADER / MENU ================= -->
+  <header class="hero">
+    <img
+      src="{{ url_for('static', filename='images/logo-paula-pedrozo.png') }}"
+      alt="Paula Pedrozo - Psicanálise Clínica"
+      class="logo"
+    />
+
+    <h1>Paula Pedrozo</h1>
+    <p>Psicanálise Clínica • Atendimento Online</p>
+
+    <!-- MENU -->
+    <nav class="menu">
+      <a href="/">Início</a>
+      <a href="/atendimento">Atendimento</a>
+      <a href="/mentoria">Mentoria para Mães</a>
+      <a href="/devocional">Devocional / Livro</a>
+      <a href="/agendamento">Agendamento</a>
+      <a href="/contato">Contato</a>
+    </nav>
+  </header>
+
+  <!-- ================= CONTEÚDO ================= -->
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>
+      © 2025 • MVP demonstrativo<br>
+      Desenvolvido por <strong>Nous Tecnologia</strong> • Projeto Empreendedores
+    </p>
+  </footer>
+
+</body>
+</html>
