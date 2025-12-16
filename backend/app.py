@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+
 # =========================
 # FORMULÁRIO (LEAD)
 # =========================
@@ -18,17 +20,21 @@ def contato():
     nome = request.form.get("nome")
     email = request.form.get("email")
     telefone = request.form.get("telefone")
+    interesse = request.form.get("interesse")
     mensagem = request.form.get("mensagem")
 
     # MVP: apenas log (DB entra depois)
-    print("📩 Novo contato recebido:")
-    print(nome, email, telefone, mensagem)
+    print("===================================")
+    print("📩 Novo contato recebido")
+    print(f"🕒 Data/Hora: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
+    print(f"👤 Nome: {nome}")
+    print(f"📧 Email: {email}")
+    print(f"📱 Telefone: {telefone}")
+    print(f"🎯 Interesse: {interesse}")
+    print(f"💬 Mensagem: {mensagem}")
+    print("===================================")
 
-    return redirect(url_for("home"))
-
-# =========================
-# START
-# =========================
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    # Futuro:
+    # - salvar no MySQL
+    # - disparar WhatsApp / e-mail
+    #
