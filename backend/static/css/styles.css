@@ -11,12 +11,12 @@
    PALETA DE CORES
 ========================= */
 :root {
-    --bg-principal: #f6efe9;      /* bege claro */
-    --bg-secundario: #ffffff;     /* branco */
-    --marrom-texto: #6b4f3f;      /* marrom quente */
-    --verde-suave: #5a7d7c;       /* verde calmo */
-    --rosa-claro: #e6cfc3;        /* rosé suave */
-    --cinza-borda: #d9cfc8;       /* bordas suaves */
+    --bg-principal: #f6efe9;
+    --bg-secundario: #ffffff;
+    --marrom-texto: #6b4f3f;
+    --verde-suave: #5a7d7c;
+    --rosa-claro: #e6cfc3;
+    --cinza-borda: #d9cfc8;
 }
 
 /* =========================
@@ -52,6 +52,28 @@ body {
 .logo {
     max-width: 180px;
     margin-bottom: 20px;
+}
+
+/* =========================
+   MENU
+========================= */
+.menu {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--verde-suave);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.menu a:hover {
+    text-decoration: underline;
 }
 
 /* =========================
@@ -100,27 +122,29 @@ body {
 }
 
 /* =========================
-   FORMULÁRIO
+   FORMULÁRIO / CARDS
 ========================= */
 .formulario {
     background: var(--bg-secundario);
     padding: 35px;
-    border-radius: 12px;
+    border-radius: 14px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
 .formulario h2 {
     margin-bottom: 25px;
     text-align: center;
-    color: var(--marrom-texto);
 }
 
+/* =========================
+   INPUTS
+========================= */
 form input,
 form textarea {
     width: 100%;
     padding: 14px;
     margin-bottom: 18px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid var(--cinza-borda);
     font-size: 0.95rem;
     font-family: inherit;
@@ -162,25 +186,10 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ================= MENU ================= */
-.menu {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+/* =====================================================
+   ASSISTENTE VIRTUAL
+===================================================== */
 
-.menu a {
-    text-decoration: none;
-    color: var(--verde-suave);
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.menu a:hover {
-    text-decoration: underline;
-}
 #assistente-botao {
     position: fixed;
     bottom: 25px;
@@ -204,12 +213,16 @@ footer {
     right: 25px;
     width: 320px;
     background: white;
-    border-radius: 12px;
+    border-radius: 14px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     z-index: 999;
+}
+
+#assistente-janela.assistente-fe_toggle {
+    display: none;
 }
 
 #assistente-janela.assistente-fechado {
@@ -219,12 +232,22 @@ footer {
 .assistente-header {
     background: var(--verde-suave);
     color: white;
-    padding: 12px;
+    padding: 14px;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
+#assistente-fechar {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px;
+}
+
+/* =========================
+   MENSAGENS
+========================= */
 #assistente-mensagens {
     padding: 12px;
     height: 220px;
@@ -233,25 +256,12 @@ footer {
     white-space: pre-line;
 }
 
-#assistente-input {
-    border: none;
-    border-top: 1px solid #eee;
-    padding: 12px;
-    outline: none;
-}
-/* =========================
-   ASSISTENTE — MENSAGENS
-========================= */
-
 .mensagem-bot {
     background: #f4f1ee;
-    color: var(--marrom-texto);
     padding: 10px 14px;
     border-radius: 14px 14px 14px 4px;
     margin-bottom: 10px;
     max-width: 85%;
-    font-size: 0.9rem;
-    line-height: 1.4;
 }
 
 .mensagem-user {
@@ -262,15 +272,26 @@ footer {
     margin-bottom: 10px;
     margin-left: auto;
     max-width: 85%;
-    font-size: 0.9rem;
-    line-height: 1.4;
 }
 
-/* Digitando... */
 .mensagem-digitando {
     font-style: italic;
     opacity: 0.7;
 }
+
+/* =========================
+   INPUT ASSISTENTE
+========================= */
+#assistente-input {
+    border: none;
+    border-top: 1px solid #eee;
+    padding: 12px;
+    outline: none;
+    position: sticky;
+    bottom: 0;
+    background: white;
+}
+
 /* =========================
    ASSISTENTE — MOBILE
 ========================= */
@@ -286,15 +307,14 @@ footer {
 
     #assistente-janela {
         width: calc(100% - 20px);
-        right: 10px;
         left: 10px;
+        right: 10px;
         bottom: 90px;
-        max-height: 70vh;
+        max-height: 75vh;
     }
 
     #assistente-mensagens {
-        height: auto;
-        max-height: 45vh;
+        max-height: 50vh;
         font-size: 0.95rem;
     }
 
@@ -305,7 +325,7 @@ footer {
 
     .mensagem-bot,
     .mensagem-user {
-        font-size: 0.95rem;
         max-width: 90%;
+        font-size: 0.95rem;
     }
 }
