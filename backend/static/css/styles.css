@@ -181,3 +181,61 @@ footer {
 .menu a:hover {
     text-decoration: underline;
 }
+#assistente-botao {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: var(--verde-suave);
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 999;
+}
+
+#assistente-janela {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.assistente-fechado {
+    display: none;
+}
+
+.assistente-header {
+    background: var(--verde-suave);
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+#assistente-mensagens {
+    padding: 12px;
+    height: 220px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    white-space: pre-line;
+}
+
+#assistente-input {
+    border: none;
+    border-top: 1px solid #eee;
+    padding: 12px;
+    outline: none;
+}
