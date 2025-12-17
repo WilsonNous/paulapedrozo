@@ -59,5 +59,26 @@
     </p>
   </footer>
 
+  <!-- ================= ASSISTENTE VIRTUAL ================= -->
+  <div id="assistente-botao" title="Posso te ajudar?">💬</div>
+
+  <div id="assistente-janela" class="assistente-fechado">
+    <div class="assistente-header">
+      Assistente Virtual
+      <span id="assistente-fechar">✖</span>
+    </div>
+
+    <div id="assistente-mensagens"></div>
+
+    <input
+      type="text"
+      id="assistente-input"
+      placeholder="Digite 1, 2, 3 ou 4 e pressione Enter"
+    />
+  </div>
+
+  <!-- ================= JS ================= -->
+  <script src="{{ url_for('static', filename='js/assistente.js') }}"></script>
+
 </body>
 </html>
