@@ -212,7 +212,7 @@ footer {
     z-index: 999;
 }
 
-.assistente-fechado {
+#assistente-janela.assistente-fechado {
     display: none;
 }
 
