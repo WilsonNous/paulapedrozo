@@ -239,3 +239,35 @@ footer {
     padding: 12px;
     outline: none;
 }
+/* =========================
+   ASSISTENTE — MENSAGENS
+========================= */
+
+.mensagem-bot {
+    background: #f4f1ee;
+    color: var(--marrom-texto);
+    padding: 10px 14px;
+    border-radius: 14px 14px 14px 4px;
+    margin-bottom: 10px;
+    max-width: 85%;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.mensagem-user {
+    background: var(--verde-suave);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 14px 14px 4px 14px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    max-width: 85%;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Digitando... */
+.mensagem-digitando {
+    font-style: italic;
+    opacity: 0.7;
+}
