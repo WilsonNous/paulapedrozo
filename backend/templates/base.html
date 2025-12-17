@@ -18,6 +18,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
 
+  <!-- ================= AOS ================= -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <!-- ================= CSS ================= -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
@@ -25,7 +28,7 @@
 <body>
 
   <!-- ================= HEADER / MENU ================= -->
-  <header class="hero">
+  <header class="hero" data-aos="fade-down">
     <img
       src="{{ url_for('static', filename='images/logo-paula-pedrozo.png') }}"
       alt="Paula Pedrozo - Psicanálise Clínica"
@@ -54,8 +57,8 @@
   <!-- ================= FOOTER ================= -->
   <footer>
     <p>
-      © 2025 • MVP demonstrativo<br>
-      Desenvolvido por <strong>Nous Tecnologia</strong> • Projeto Empreendedores
+      © 2025 • Atendimento Online em Psicanálise Clínica<br>
+      Desenvolvido por <strong>Nous Tecnologia</strong>
     </p>
   </footer>
 
@@ -78,6 +81,15 @@
   </div>
 
   <!-- ================= JS ================= -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: "ease-out-cubic",
+      once: true
+    });
+  </script>
+
   <script src="{{ url_for('static', filename='js/assistente.js') }}"></script>
 
 </body>
