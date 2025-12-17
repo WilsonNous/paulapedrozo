@@ -1,4 +1,5 @@
-let etapaAtual = "inicio";
+let etapaAtual = null;
+let assistenteIniciado = false;
 
 const botao = document.getElementById("assistente-botao");
 const janela = document.getElementById("assistente-janela");
@@ -6,15 +7,22 @@ const fechar = document.getElementById("assistente-fechar");
 const mensagens = document.getElementById("assistente-mensagens");
 const input = document.getElementById("assistente-input");
 
+// ABRIR ASSISTENTE
 botao.onclick = () => {
     janela.classList.remove("assistente-fechado");
-    iniciarAssistente();
+
+    if (!assistenteIniciado) {
+        iniciarAssistente();
+        assistenteIniciado = true;
+    }
 };
 
+// FECHAR ASSISTENTE
 fechar.onclick = () => {
     janela.classList.add("assistente-fechado");
 };
 
+// ADICIONA MENSAGEM
 function adicionarMensagem(texto) {
     const div = document.createElement("div");
     div.style.marginBottom = "8px";
@@ -23,6 +31,7 @@ function adicionarMensagem(texto) {
     mensagens.scrollTop = mensagens.scrollHeight;
 }
 
+// INICIA FLUXO (SÓ UMA VEZ)
 function iniciarAssistente() {
     mensagens.innerHTML = "";
     etapaAtual = "inicio";
@@ -39,6 +48,7 @@ function iniciarAssistente() {
     });
 }
 
+// INPUT DO USUÁRIO
 input.addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
         const texto = input.value.trim();
