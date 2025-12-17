@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import os
 from datetime import datetime
 
@@ -60,12 +60,81 @@ def contato_submit():
     print(f"💬 Mensagem: {mensagem}")
     print("===================================")
 
-    # Futuro:
-    # - salvar no MySQL
-    # - disparar WhatsApp / e-mail
-    # - classificar lead por interesse
-
     return redirect(url_for("home"))
+
+
+# =========================
+# ASSISTENTE VIRTUAL (MVP)
+# =========================
+@app.route("/assistente", methods=["POST"])
+def assistente():
+    data = request.get_json(silent=True) or {}
+    etapa = data.get("etapa")
+    resposta = (data.get("resposta") or "").strip()
+
+    # Log simples (evolui depois para DB)
+    print("🤖 Assistente | Etapa:", etapa, "| Resposta:", resposta)
+
+    if etapa == "inicio":
+        return jsonify({
+            "mensagem": (
+                "Olá! Sou o assistente virtual da Paula Pedrozo 😊\n\n"
+                "Posso te ajudar com:\n"
+                "1️⃣ Atendimento individual\n"
+                "2️⃣ Mentoria para mães\n"
+                "3️⃣ Devocional / Livro\n"
+                "4️⃣ Agendamento\n\n"
+                "Digite o número da opção desejada."
+            ),
+            "proxima_etapa": "menu"
+        })
+
+    if etapa == "menu":
+        if resposta == "1":
+            return jsonify({
+                "mensagem": (
+                    "O atendimento é realizado de forma online, "
+                    "com ética, sigilo e cuidado.\n\n"
+                    "Posso te direcionar para falar com a Paula pelo WhatsApp."
+                ),
+                "link": "https://wa.me/554899449961",
+                "proxima_etapa": "fim"
+            })
+
+        if resposta == "2":
+            return jsonify({
+                "mensagem": (
+                    "A mentoria para mães está em fase de desenvolvimento 🌱\n\n"
+                    "Você pode falar com a Paula agora ou pedir para ser avisada quando abrir."
+                ),
+                "link": "https://wa.me/554899449961",
+                "proxima_etapa": "fim"
+            })
+
+        if resposta == "3":
+            return jsonify({
+                "mensagem": (
+                    "O devocional/livro está em preparação 📖\n\n"
+                    "Você pode receber novidades diretamente com a Paula."
+                ),
+                "link": "https://wa.me/554899449961",
+                "proxima_etapa": "fim"
+            })
+
+        if resposta == "4":
+            return jsonify({
+                "mensagem": (
+                    "O agendamento é feito de forma personalizada.\n\n"
+                    "Vamos alinhar horários pelo WhatsApp?"
+                ),
+                "link": "https://wa.me/554899449961",
+                "proxima_etapa": "fim"
+            })
+
+        return jsonify({
+            "mensagem": "Não entendi 😕 Por favor, responda com 1, 2, 3 ou 4.",
+            "proxima_etapa": "menu"
+        })
 
 
 # =========================
