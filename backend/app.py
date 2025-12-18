@@ -72,15 +72,17 @@ def assistente():
     etapa = data.get("etapa")
     resposta = (data.get("resposta") or "").strip()
 
-    # Log simples (evolui depois para DB)
     print("🤖 Assistente | Etapa:", etapa, "| Resposta:", resposta)
 
+    # ===== INÍCIO =====
     if etapa == "inicio":
         return jsonify({
             "mensagem": (
-                "Olá! Sou o assistente virtual da Paula Pedrozo 😊\n\n"
-                "Posso te ajudar com:\n"
-                "1️⃣ Atendimento individual\n"
+                "Olá! 😊\n\n"
+                "Sou o assistente virtual da Paula Pedrozo.\n"
+                "Estou aqui para te orientar com carinho.\n\n"
+                "Como posso te ajudar hoje?\n\n"
+                "1️⃣ Atendimento terapêutico\n"
                 "2️⃣ Mentoria para mães\n"
                 "3️⃣ Devocional / Livro\n"
                 "4️⃣ Agendamento\n\n"
@@ -89,50 +91,67 @@ def assistente():
             "proxima_etapa": "menu"
         })
 
+    # ===== MENU =====
     if etapa == "menu":
+
+        # ATENDIMENTO
         if resposta == "1":
             return jsonify({
                 "mensagem": (
-                    "O atendimento é realizado de forma online, "
-                    "com ética, sigilo e cuidado.\n\n"
-                    "Posso te direcionar para falar com a Paula pelo WhatsApp."
+                    "O atendimento terapêutico é realizado de forma online, "
+                    "por chamada de vídeo, em dia e horário previamente agendados.\n\n"
+                    "Cada sessão dura em média 50 minutos e acontece em um espaço de "
+                    "escuta, acolhimento e sigilo 🤍\n\n"
+                    "Se desejar, posso te direcionar para conversar com a Paula pelo WhatsApp."
                 ),
                 "link": "https://wa.me/554899449961",
                 "proxima_etapa": "fim"
             })
 
+        # MENTORIA
         if resposta == "2":
             return jsonify({
                 "mensagem": (
-                    "A mentoria para mães está em fase de desenvolvimento 🌱\n\n"
-                    "Você pode falar com a Paula agora ou pedir para ser avisada quando abrir."
+                    "A mentoria para mães é um projeto prioritário 🌷\n\n"
+                    "Ela foi pensada para apoiar mulheres em sua jornada emocional, "
+                    "familiar e espiritual, com encontros e conteúdos especiais.\n\n"
+                    "Você pode conversar com a Paula agora ou pedir para ser avisada quando abrir."
                 ),
                 "link": "https://wa.me/554899449961",
                 "proxima_etapa": "fim"
             })
 
+        # DEVOCIONAL / LIVRO
         if resposta == "3":
             return jsonify({
                 "mensagem": (
-                    "O devocional/livro está em preparação 📖\n\n"
-                    "Você pode receber novidades diretamente com a Paula."
+                    "O devocional / livro está em fase de preparação 📖\n\n"
+                    "Será um conteúdo de reflexão, fortalecimento emocional e espiritual.\n\n"
+                    "Se quiser, você pode falar com a Paula e receber novidades."
                 ),
                 "link": "https://wa.me/554899449961",
                 "proxima_etapa": "fim"
             })
 
+        # AGENDAMENTO
         if resposta == "4":
             return jsonify({
                 "mensagem": (
-                    "O agendamento é feito de forma personalizada.\n\n"
-                    "Vamos alinhar horários pelo WhatsApp?"
+                    "O agendamento é feito de forma personalizada 🗓️\n\n"
+                    "Assim conseguimos respeitar o seu tempo e a disponibilidade da Paula.\n\n"
+                    "Vamos alinhar tudo com calma pelo WhatsApp?"
                 ),
                 "link": "https://wa.me/554899449961",
                 "proxima_etapa": "fim"
             })
 
+        # RESPOSTA INVÁLIDA
         return jsonify({
-            "mensagem": "Não entendi 😕 Por favor, responda com 1, 2, 3 ou 4.",
+            "mensagem": (
+                "Não consegui entender 😕\n\n"
+                "Por favor, responda com:\n"
+                "1, 2, 3 ou 4."
+            ),
             "proxima_etapa": "menu"
         })
 
