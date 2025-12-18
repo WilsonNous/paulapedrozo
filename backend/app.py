@@ -70,7 +70,7 @@ def contato_submit():
 def assistente():
     data = request.get_json(silent=True) or {}
     etapa = data.get("etapa")
-    resposta = (data.get("resposta") or "").strip()
+    resposta = (data.get("resposta") or "").strip().lower()
 
     print("🤖 Assistente | Etapa:", etapa, "| Resposta:", resposta)
 
@@ -94,7 +94,6 @@ def assistente():
     # ===== MENU =====
     if etapa == "menu":
 
-        # ATENDIMENTO
         if resposta == "1":
             return jsonify({
                 "mensagem": (
@@ -102,50 +101,46 @@ def assistente():
                     "por chamada de vídeo, em dia e horário previamente agendados.\n\n"
                     "Cada sessão dura em média 50 minutos e acontece em um espaço de "
                     "escuta, acolhimento e sigilo 🤍\n\n"
-                    "Se desejar, posso te direcionar para conversar com a Paula pelo WhatsApp."
+                    "Você gostaria de falar com a Paula pelo WhatsApp agora?"
+                    "\n\nResponda: Sim ou Não."
                 ),
-                "link": "https://wa.me/554899449961",
-                "proxima_etapa": "fim"
+                "proxima_etapa": "confirmar_whatsapp"
             })
 
-        # MENTORIA
         if resposta == "2":
             return jsonify({
                 "mensagem": (
                     "A mentoria para mães é um projeto prioritário 🌷\n\n"
                     "Ela foi pensada para apoiar mulheres em sua jornada emocional, "
                     "familiar e espiritual, com encontros e conteúdos especiais.\n\n"
-                    "Você pode conversar com a Paula agora ou pedir para ser avisada quando abrir."
+                    "Você gostaria de falar com a Paula pelo WhatsApp para saber mais?"
+                    "\n\nResponda: Sim ou Não."
                 ),
-                "link": "https://wa.me/554899449961",
-                "proxima_etapa": "fim"
+                "proxima_etapa": "confirmar_whatsapp"
             })
 
-        # DEVOCIONAL / LIVRO
         if resposta == "3":
             return jsonify({
                 "mensagem": (
                     "O devocional / livro está em fase de preparação 📖\n\n"
                     "Será um conteúdo de reflexão, fortalecimento emocional e espiritual.\n\n"
-                    "Se quiser, você pode falar com a Paula e receber novidades."
+                    "Você gostaria de falar com a Paula pelo WhatsApp para receber novidades?"
+                    "\n\nResponda: Sim ou Não."
                 ),
-                "link": "https://wa.me/554899449961",
-                "proxima_etapa": "fim"
+                "proxima_etapa": "confirmar_whatsapp"
             })
 
-        # AGENDAMENTO
         if resposta == "4":
             return jsonify({
                 "mensagem": (
                     "O agendamento é feito de forma personalizada 🗓️\n\n"
                     "Assim conseguimos respeitar o seu tempo e a disponibilidade da Paula.\n\n"
-                    "Vamos alinhar tudo com calma pelo WhatsApp?"
+                    "Você gostaria de alinhar isso pelo WhatsApp?"
+                    "\n\nResponda: Sim ou Não."
                 ),
-                "link": "https://wa.me/554899449961",
-                "proxima_etapa": "fim"
+                "proxima_etapa": "confirmar_whatsapp"
             })
 
-        # RESPOSTA INVÁLIDA
         return jsonify({
             "mensagem": (
                 "Não consegui entender 😕\n\n"
@@ -153,6 +148,35 @@ def assistente():
                 "1, 2, 3 ou 4."
             ),
             "proxima_etapa": "menu"
+        })
+
+    # ===== CONFIRMAÇÃO WHATSAPP =====
+    if etapa == "confirmar_whatsapp":
+
+        if resposta in ["sim", "s", "ok", "claro"]:
+            return jsonify({
+                "mensagem": (
+                    "Perfeito 😊\n\n"
+                    "Vou te direcionar agora."
+                ),
+                "link": "https://wa.me/554899449961",
+                "proxima_etapa": "fim"
+            })
+
+        if resposta in ["não", "nao", "n"]:
+            return jsonify({
+                "mensagem": (
+                    "Tudo bem 🤍\n\n"
+                    "Se precisar, estarei por aqui para te ajudar."
+                ),
+                "proxima_etapa": "fim"
+            })
+
+        return jsonify({
+            "mensagem": (
+                "Pode me responder com **Sim** ou **Não**, por favor 😊"
+            ),
+            "proxima_etapa": "confirmar_whatsapp"
         })
 
 
