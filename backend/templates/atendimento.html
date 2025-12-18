@@ -1,41 +1,85 @@
 {% extends "base.html" %}
 
 {% block title %}
-Atendimento | Paula Pedrozo
+Atendimento Terapêutico | Paula Pedrozo
 {% endblock %}
 
 {% block content %}
 
-<section class="intro">
-  <h2>Atendimento em Psicanálise Clínica</h2>
+<!-- INTRO -->
+<section class="intro" data-aos="fade-up">
+  <h2>Atendimento Terapêutico Online</h2>
 
   <p>
-    O atendimento é um espaço de escuta, acolhimento e cuidado,
+    Um espaço de escuta, acolhimento e cuidado emocional,
     conduzido com ética, sigilo e respeito à sua história.
   </p>
 </section>
 
-<section class="formulario">
-  <h2>Como funciona o processo</h2>
+<!-- CONTEÚDO -->
+<section class="formulario" data-aos="fade-up" data-aos-delay="150">
 
+  <!-- IMAGEM ILUSTRATIVA -->
+  <img
+    src="{{ url_for('static', filename='images/atendimento.jpg') }}"
+    alt="Atendimento terapêutico online por chamada de vídeo"
+    style="
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      object-fit: cover;
+    "
+  />
+
+  <h2>Como funciona o atendimento</h2>
+
+  <p>
+    O atendimento terapêutico acontece por <strong>chamada de vídeo</strong>,
+    em dia e horário previamente agendados, proporcionando um espaço de
+    <strong>privacidade, escuta atenta e presença terapêutica</strong>.
+  </p>
+
+  <p>
+    Durante os encontros, você será convidada a falar sobre suas vivências,
+    sentimentos, desafios emocionais e padrões que se repetem ao longo da sua
+    história, sempre com acolhimento, respeito e cuidado.
+  </p>
+
+  <h3 style="margin: 20px 0 10px;">O acompanhamento online permite:</h3>
   <ul style="padding-left: 18px;">
-    <li>Sessões individuais realizadas de forma <strong>online</strong></li>
-    <li>Agenda organizada para garantir qualidade no atendimento</li>
-    <li>Limite de até <strong>5 clientes por dia</strong>, <strong>4 dias por semana</strong></li>
-    <li>Trabalho estruturado em <strong>pacotes de 6 sessões</strong></li>
+    <li>✨ Acesso à terapia de onde você estiver</li>
+    <li>✨ Mais conforto e economia de tempo</li>
+    <li>✨ Continuidade no cuidado emocional</li>
+    <li>✨ Sigilo, ética e responsabilidade profissional</li>
   </ul>
 
   <p style="margin-top: 15px;">
-    Os pacotes são pensados para proporcionar continuidade,
-    aprofundamento e evolução no processo terapêutico.
+    Cada sessão tem duração média de <strong>50 minutos</strong>.
+    O processo terapêutico é construído de forma <strong>personalizada</strong>,
+    respeitando o tempo, a história e as necessidades de cada pessoa,
+    promovendo consciência, cura emocional e transformação,
+    à luz da fé cristã.
   </p>
 
-  <a
-    class="btn-whatsapp"
-    href="https://wa.me/554899449961"
-    target="_blank">
-    Conversar sobre o atendimento
-  </a>
+  <h3 style="margin: 20px 0 10px;">Este atendimento é indicado para quem deseja:</h3>
+  <ul style="padding-left: 18px;">
+    <li>Cuidar da saúde emocional</li>
+    <li>Ressignificar histórias, dores e experiências</li>
+    <li>Desenvolver autoconhecimento e maturidade emocional</li>
+    <li>Fortalecer identidade, vínculos e autoestima</li>
+    <li>Viver com mais leveza, consciência e propósito</li>
+  </ul>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a
+      class="btn-whatsapp"
+      href="https://wa.me/554899449961"
+      target="_blank"
+      rel="noopener">
+      Conversar sobre o atendimento
+    </a>
+  </div>
+
 </section>
 
 {% endblock %}
