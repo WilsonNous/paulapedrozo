@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}
+Sobre Paula Pedrozo | Psicanálise Clínica
+{% endblock %}
+
+{% block content %}
+
+<section class="intro" data-aos="fade-up">
+  <h2>Sobre Paula Pedrozo</h2>
+  <p>
+    Conheça a história, o chamado e a missão por trás do cuidado terapêutico.
+  </p>
+</section>
+
+<section class="formulario" data-aos="fade-up" data-aos-delay="100">
+
+  <!-- FOTO -->
+  <div style="text-align:center; margin-bottom: 30px;">
+    <img
+      src="{{ url_for('static', filename='images/paula-pedrozo.jpg') }}"
+      alt="Paula Pedrozo"
+      style="
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      "
+    >
+  </div>
+
+  <!-- TEXTO -->
+  <div style="font-size: 1rem; line-height: 1.8;">
+
+    <p data-aos="fade-up">
+      Sou <strong>Paula Pedrozo</strong>, filha do Rei Altíssimo, chamada para cuidar
+      de vidas com amor, fé e propósito. Mãe de dois filhos, um casal lindo,
+      nasci no Rio Grande do Sul e há mais de 11 anos construo minha história
+      em Florianópolis.
+    </p>
+
+    <p data-aos="fade-up" data-aos-delay="100">
+      Desde os 12 anos carrego o sonho de cuidar de pessoas. Esse chamado se
+      fortaleceu na minha experiência como cuidadora de idosos, onde compreendi
+      que o ser humano precisa ser acolhido em sua totalidade:
+      <strong>corpo, mente e alma</strong>.
+    </p>
+
+    <p data-aos="fade-up" data-aos-delay="200">
+      Sou terapeuta clínica, estudante de psicanálise, com especializações em
+      inteligência emocional, Programação Neurolinguística (PNL), depressão clínica,
+      foco e objetivos e comportamento familiar.
+    </p>
+
+    <p data-aos="fade-up" data-aos-delay="300">
+      Minha abordagem une <strong>ciência e fé</strong>, acreditando que a verdadeira
+      transformação acontece quando corpo, mente e espírito caminham juntos,
+      à luz da fé cristã.
+    </p>
+
+    <p data-aos="fade-up" data-aos-delay="400">
+      Minha missão é ajudar famílias a viverem cura emocional, autoconhecimento
+      e maturidade espiritual, encontrando em Deus a essência da sua existência
+      e um novo sentido para a vida.
+    </p>
+
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align:center; margin-top: 35px;" data-aos="zoom-in" data-aos-delay="500">
+    <a
+      class="btn-whatsapp"
+      href="https://wa.me/554899449961?text=Olá,%20Paula!%20Gostaria%20de%20conhecer%20melhor%20seu%20trabalho."
+      target="_blank"
+      rel="noopener"
+    >
+      Falar com a Paula
+    </a>
+  </div>
+
+</section>
+
+{% endblock %}
