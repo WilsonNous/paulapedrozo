@@ -7,9 +7,7 @@ const fechar = document.getElementById("assistente-fechar");
 const mensagens = document.getElementById("assistente-mensagens");
 const input = document.getElementById("assistente-input");
 
-// =========================
-// ABRIR ASSISTENTE
-// =========================
+// ABRIR
 botao.onclick = () => {
     janela.classList.remove("assistente-fechado");
 
@@ -19,16 +17,12 @@ botao.onclick = () => {
     }
 };
 
-// =========================
-// FECHAR ASSISTENTE
-// =========================
+// FECHAR
 fechar.onclick = () => {
     janela.classList.add("assistente-fechado");
 };
 
-// =========================
-// ADICIONAR MENSAGEM
-// =========================
+// MENSAGEM
 function adicionarMensagem(texto, tipo = "bot") {
     const div = document.createElement("div");
     div.className = tipo === "user" ? "mensagem-user" : "mensagem-bot";
@@ -37,16 +31,13 @@ function adicionarMensagem(texto, tipo = "bot") {
     mensagens.scrollTop = mensagens.scrollHeight;
 }
 
-// =========================
-// DIGITANDO...
-// =========================
+// DIGITANDO
 function mostrarDigitando() {
     const div = document.createElement("div");
     div.id = "digitando";
     div.className = "mensagem-bot mensagem-digitando";
     div.innerText = "Digitando...";
     mensagens.appendChild(div);
-    mensagens.scrollTop = mensagens.scrollHeight;
 }
 
 function removerDigitando() {
@@ -54,9 +45,7 @@ function removerDigitando() {
     if (el) el.remove();
 }
 
-// =========================
-// INICIAR ASSISTENTE
-// =========================
+// INÍCIO
 function iniciarAssistente() {
     mensagens.innerHTML = "";
     etapaAtual = "inicio";
@@ -73,9 +62,7 @@ function iniciarAssistente() {
     });
 }
 
-// =========================
-// INPUT DO USUÁRIO
-// =========================
+// INPUT
 input.addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
         const texto = input.value.trim();
