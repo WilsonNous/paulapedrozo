@@ -188,7 +188,7 @@ footer {
 }
 
 /* =====================================================
-   ASSISTENTE VIRTUAL
+   ASSISTENTE VIRTUAL — YARDEN
 ===================================================== */
 
 #assistente-botao {
@@ -197,16 +197,33 @@ footer {
     right: 25px;
     background: var(--verde-suave);
     color: white;
-    width: 56px;
     height: 56px;
-    border-radius: 50%;
+    padding: 0 18px;
+    border-radius: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 16px;
+    font-weight: 600;
     z-index: 999;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    transition: background 0.3s ease, transform 0.2s ease;
 }
+
+#assistente-botao:hover {
+    background: var(--verde-hover);
+    transform: translateY(-2px);
+}
+
+.assistente-texto {
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+/* =========================
+   JANELA ASSISTENTE
+========================= */
 
 #assistente-janela {
     position: fixed;
@@ -233,11 +250,13 @@ footer {
     font-weight: 600;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 /* =========================
    MENSAGENS
 ========================= */
+
 #assistente-mensagens {
     padding: 14px;
     height: 230px;
@@ -267,12 +286,21 @@ footer {
    MOBILE
 ========================= */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
+
+    /* some texto, vira apenas ícone */
+    .assistente-texto {
+        display: none;
     }
 
-    .intro h2 {
-        font-size: 1.6rem;
+    #assistente-botao {
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border-radius: 50%;
+        justify-content: center;
+        font-size: 26px;
+        right: 20px;
+        bottom: 20px;
     }
 
     #assistente-janela {
