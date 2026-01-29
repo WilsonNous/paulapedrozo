@@ -141,7 +141,8 @@ body {
    INPUTS
 ========================= */
 form input,
-form textarea {
+form textarea,
+form select {
     width: 100%;
     padding: 14px;
     margin-bottom: 18px;
@@ -149,10 +150,13 @@ form textarea {
     border: 1px solid var(--cinza-borda);
     font-size: 0.95rem;
     font-family: inherit;
+    background: #fff;
+    color: var(--marrom-texto);
 }
 
 form input:focus,
-form textarea:focus {
+form textarea:focus,
+form select:focus {
     outline: none;
     border-color: var(--verde-suave);
 }
@@ -185,6 +189,33 @@ footer {
     padding: 36px 20px;
     color: #9a8f87;
     font-size: 0.85rem;
+}
+
+/* =========================
+   FOOTER — SOCIAL (INSTAGRAM)
+========================= */
+.footer-social {
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--verde-hover);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover {
+    opacity: 0.78;
+    transform: translateY(-1px);
+}
+
+.footer-social i {
+    font-size: 1.15rem;
 }
 
 /* =====================================================
@@ -253,6 +284,18 @@ footer {
     align-items: center;
 }
 
+#assistente-fechar {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px;
+    line-height: 1;
+    opacity: 0.95;
+}
+
+#assistente-fechar:hover {
+    opacity: 0.75;
+}
+
 /* =========================
    MENSAGENS
 ========================= */
@@ -282,6 +325,23 @@ footer {
     max-width: 85%;
 }
 
+.mensagem-digitando {
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* =========================
+   INPUT ASSISTENTE
+========================= */
+#assistente-input {
+    border: none;
+    border-top: 1px solid #efe9e4;
+    padding: 14px 14px;
+    outline: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
 /* =========================
    MOBILE
 ========================= */
@@ -309,5 +369,26 @@ footer {
         right: 10px;
         bottom: 90px;
         max-height: 75vh;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .intro h2 {
+        font-size: 1.6rem;
+    }
+
+    .formulario {
+        padding: 26px;
+        border-radius: 14px;
+    }
+
+    .menu {
+        gap: 14px;
+    }
+
+    .menu a {
+        font-size: 0.92rem;
     }
 }
