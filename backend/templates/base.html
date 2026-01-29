@@ -8,9 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="description"
-        content="Atendimento em psicanálise clínica com acolhimento, ética e cuidado emocional. Atendimento online." />
+        content="{% block description %}Atendimento em psicanálise clínica com acolhimento, ética e cuidado emocional. Atendimento online.{% endblock %}" />
 
   <meta name="author" content="Nous Tecnologia" />
+  <meta name="theme-color" content="#f8f2ec" />
 
   <!-- ================= FAVICON ================= -->
   <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}" type="image/x-icon">
@@ -36,12 +37,13 @@
       src="{{ url_for('static', filename='images/logo-paula-pedrozo.png') }}"
       alt="Paula Pedrozo - Psicanálise Clínica"
       class="logo"
+      loading="eager"
     />
 
     <h1>Paula Pedrozo</h1>
     <p>Psicanálise Clínica • Atendimento Online</p>
 
-    <nav class="menu">
+    <nav class="menu" aria-label="Menu principal">
       <a href="/">Início</a>
       <a href="/sobre">Sobre</a>
       <a href="/atendimento">Atendimento</a>
@@ -61,49 +63,58 @@
   <footer>
     <div class="footer-social">
       <a
-        href="https://www.instagram.com/paulapedrozo_fs"
+        href="https://instagram.com/paulapedrozo_fs/"
         target="_blank"
         rel="noopener"
-        aria-label="Instagram Paula Pedrozo"
+        aria-label="Instagram da Paula Pedrozo"
       >
-        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
         <span>@paulapedrozo_fs</span>
       </a>
     </div>
 
     <p>
-      © 2025 • Atendimento Online em Psicanálise Clínica<br>
+      © <span id="year"></span> • Atendimento Online em Psicanálise Clínica<br>
       Desenvolvido por <strong>Nous Tecnologia</strong>
     </p>
   </footer>
 
   <!-- ================= ASSISTENTE YARDEN ================= -->
-  <div id="assistente-botao" title="Fale com Yarden">
+  <div id="assistente-botao" title="Fale com Yarden" aria-label="Abrir assistente virtual">
     💬 <span class="assistente-texto">Fale com Yarden</span>
   </div>
 
-  <div id="assistente-janela" class="assistente-fechado">
+  <div id="assistente-janela" class="assistente-fechado" role="dialog" aria-label="Assistente virtual Yarden">
     <div class="assistente-header">
       Yarden • Assistente Virtual
-      <span id="assistente-fechar">✖</span>
+      <span id="assistente-fechar" aria-label="Fechar assistente" role="button">✖</span>
     </div>
 
-    <div id="assistente-mensagens"></div>
+    <div id="assistente-mensagens" aria-live="polite"></div>
 
     <input
       type="text"
       id="assistente-input"
       placeholder="Digite 1, 2, 3 ou 4 e pressione Enter"
+      autocomplete="off"
     />
   </div>
 
   <!-- ================= JS ================= -->
+  <script>
+    // Ano automático no rodapé
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 800,
       easing: "ease-out-cubic",
-      once: true
+      once: true,
+      offset: 80
+      // Se quiser performance máxima no celular:
+      // disable: "mobile"
     });
   </script>
 
